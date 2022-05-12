@@ -15,6 +15,7 @@ struct node *newNode(int num)
     temp->left = temp->right = NULL;
     return temp;
 }
+
 struct node *insert(struct node *root, int num)
 {
 
@@ -43,8 +44,8 @@ void inorder(struct node *root)
         printf("%d\t", root->data);
         inorder(root->right);
     }
-    printf("\n");
 }
+
 struct node *inorderPredecessor(struct node *root)
 {
     struct node *node = root->left;
@@ -54,6 +55,7 @@ struct node *inorderPredecessor(struct node *root)
     }
     return node;
 }
+
 struct node *delete (struct node *root, int num)
 {
 
@@ -101,9 +103,28 @@ struct node *delete (struct node *root, int num)
         }
     }
 }
+
+void mirrorImage(struct node *root)
+{
+    struct node *temp;
+    if (root == NULL)
+    {
+        return;
+    }
+    else
+    {
+        mirrorImage(root->left);
+        mirrorImage(root->right);
+        temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+    }
+}
+
 int main()
 {
     struct node *root = NULL;
+    
     while (1)
     {
         int choice = 0;
@@ -112,7 +133,8 @@ int main()
         printf("2. Insert an element into the Binary Search Tree \n");
         printf("3. Delete an element from the Binary Search Tree \n");
         printf("4. Print Inorder Traversal of the Binary Search Tree\n");
-        printf("5. Exit \n");
+        printf("5. Mirror your Binary Search Tree\n");
+        printf("6. Exit \n");
         printf("Enter your choice : ");
         scanf("%d", &choice);
 
@@ -137,6 +159,7 @@ int main()
                 }
             }
         }
+
         else if (choice == 2)
         {
             int num;
@@ -156,7 +179,14 @@ int main()
         else if (choice == 4)
         {
             inorder(root);
+            printf("\n");
         }
+
+        else if (choice == 5)
+        {
+            mirrorImage(root);
+        }
+
         else
         {
             return 0;

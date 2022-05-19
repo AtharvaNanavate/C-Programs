@@ -44,6 +44,11 @@ void displayGraph(int g[20][20], int n){
   printf("\n");
 }
 }
+
+void bfs(int n){
+
+}
+
 int main(){
   int g[20][20];
   createGraph(g);

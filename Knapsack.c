@@ -1,13 +1,17 @@
 #include<stdio.h>
 
 int findMax(int n, float cp[20]){
+    
     float max=0;
     int index;
+    
     for(int i = 0; i < n; i++){
+        
         if(max < cp[i]){
             max = cp[i];
             index = i;
         }
+        
     }
     return index;
 }
@@ -16,7 +20,6 @@ void calculate(int n, int m, float w[20], float p[20]){
 
 float cp[20]={},totalCost = 0,scale;
 int capacity = m, maxIndex;
-
 
     for(int i = 0; i < n; i++){
         cp[i] = p[i]/w[i];

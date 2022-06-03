@@ -30,18 +30,22 @@ struct node* insertBST(struct node* root, int key){
   else if(key < root->data){
     root->left = insertBST(root->left, key);
   }
+  
 return root;
 }
 
 void inorder(struct node* root){
+  
 if(root != NULL){
   inorder(root->left);
   printf("%d\t",root->data);
   inorder(root->right);
 }
+  
 }
 
 int main(){
+  
   struct node* root = NULL;
 
   root = newNode(50);
@@ -52,6 +56,7 @@ int main(){
   insertBST(root,100);
   
   inorder(root);
+  
   return 0;
 
 }

@@ -68,14 +68,20 @@ while(n > 0){
 
 int main(){
     int heap[20];
+    
     printf("Enter the number of elements in your heap : ");
     scanf("%d",&n);
+    
     int size = n;
+    
     createHeap(heap);
     printf("Max Heap : ");
     display(heap,n);
+    
     delete(heap);
+    
     printf("\nSorted Array : ");
     display(heap, size);
+    
     return 0;
 }

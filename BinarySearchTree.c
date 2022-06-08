@@ -49,6 +49,7 @@ void inorder(struct node *root)
 struct node *inorderPredecessor(struct node *root)
 {
     struct node *node = root->left;
+    
     while (node->right != NULL)
     {
         node = node->right;

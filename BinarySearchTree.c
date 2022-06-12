@@ -93,6 +93,7 @@ struct node *delete (struct node *root, int num)
         {
             struct node *temp = root->left;
             free(root);
+            
             return temp;
         }
         else if (root->left != NULL && root->right != NULL)
@@ -100,6 +101,7 @@ struct node *delete (struct node *root, int num)
             struct node *iPre = inorderPredecessor(root);
             root->data = iPre->data;
             root->left = delete (root->left, iPre->data);
+            
             return root;
         }
     }
